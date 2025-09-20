@@ -90,10 +90,11 @@ export function generateStaticParams() {
 // site name via the global template. Description is trimmed to 155
 // characters to meet SEO best practices.
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const post = POSTS.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const post = POSTS.find((p) => p.slug === slug);
   const base = process.env.BASE_URL || 'https://neurohyderabad.org';
   if (!post) {
     return {
@@ -129,8 +130,9 @@ export async function generateMetadata(
   };
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = POSTS.find((p) => p.slug === params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = POSTS.find((p) => p.slug === slug);
   if (!post) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-16">
