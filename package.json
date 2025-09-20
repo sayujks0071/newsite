@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev -p 3000 --experimental-app",
+    "build": "cd neurohyderabad-site && npm run build",
+    "start": "cd neurohyderabad-site && npm start",
+    "lint": "cd neurohyderabad-site && npm run lint",
+    "install": "cd neurohyderabad-site && npm install"
   },
   "dependencies": {
     "next": "14.0.0",
