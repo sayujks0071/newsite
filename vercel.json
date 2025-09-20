@@ -1,7 +1,4 @@
 {
-  "buildCommand": "cd neurohyderabad-site && npm run build",
-  "outputDirectory": "neurohyderabad-site/.next",
-  "installCommand": "cd neurohyderabad-site && npm install",
   "rewrites": [
     {
       "source": "/(.*)",
