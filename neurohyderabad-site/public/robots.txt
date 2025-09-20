@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /.well-known
+
+Sitemap: https://neurohyderabad.org/sitemap.xml
